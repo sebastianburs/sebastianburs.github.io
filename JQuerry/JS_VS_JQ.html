@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS vs JQ</title>
+	<link rel="stylesheet" type="text/css" href="JS_vs_JQ_style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	
+	<!--  Includo da internet 
+	<script src="Script/jquery.min.js" type="text/javascript"></script>
+  	Includo da file locale  -->
+
+
+
+<script>
+
+$(document).ready(function(){
+  $("#Evento_Mouse_Mouseebter").mouseenter(function(){
+    $(this).css("background-color", "orange");
+  });
+
+  $("#Evento_Mouse_Mouseebter").mouseleave(function(){
+    $(this).css("background-color", "grey");
+  });
+
+  $("button#Reset").click(function(){
+    $("#Evento_Mouse_Mouseebter").css("background-color", "red");
+  });
+});
+
+
+
+$(document).ready(function(){
+  $("#Evento_Mouse_Click").click(function(){
+    $(this).css("background-color", "green");
+  });
+$("#Evento_Mouse_Dblclick").dblclick(function(){
+    $(this).css("background-color", "blue");
+  });
+  $("button#Reset").click(function(){
+    $("#Evento_Mouse_Click").css("background-color", "red")
+    $("#Evento_Mouse_Dblclick").css("background-color", "red");
+  });
+});
+
+</script>
+
+</head>
+<body>
+	<div id="Navbar" class="Navbar"> <p class="Header"> JQUERY </p> <p class="Brand"> Do more, write less </p> </div>
+	<div id="Container" class="Container">
+
+		<div id="Testo" class="Text_box">
+			<p class="Header_txt"> Perchè Jquery?</p>
+			<p class="Text">
+
+				Possiamo giustificare l'uso di JQ solo per una caratteristica fondamentale, la sua semplicità. <br>
+				Infatti JQ è una libreria che integra le funzionalità di JavaScript, con una nomenclatura
+				semplice e comprensibile. <br><br>
+				I suoi utilizzi principali sono per:
+			</p>
+				<ul>
+					<li> Effetti ed Animazioni
+					<li> Manipolazione HTML e Dom
+					<li> Eventi HTML
+					<li> Ajax (Scambio dati)
+				</ul>
+<p class="Text">
+				Prima di poter iniziare ad inserire il nostro codice JQ nella nostra pagina HTML, dobbiamo assicurarci di aver
+				Effettuato il link della libreria.
+				Per questo passo ci sono due modi principali:
+				<br><br>
+				1) Scaricare la libreria da JQuery.com<br>
+				2) Allegare con un link la libreria da internet
+				<img src="3.jpg">
+				<br><br>
+				Per poter usare la libreria JQ bisogna utilizzare una sintassi specifica, <br>
+				ora vediamola nelle sue parti: <br>
+				Come prima cosa essenziale dobbiamo chiamare la libreria con il simbolo:  ( $ )
+			<br>
+			Poi possiamo proseguire con il richiamo dell'oggetto: ("oggetto") necesario come un tag, un elemento con Id o con una classe, poi vedremo che ci sono più attributi con cui richiamare oggetti con JQ.<br>
+			Dopo il tag dobbiamo attribuire un'azione da eseguire oppure un trigger che scateni una funzione come onclick etc.<br>
+			Infine attribuiamo la funzione da eseguire come in un Js classico.
+				<img src="4.jpg"> <br>
+			I tag principali che possiamo inserire con JQuery sono:<br>
+			$("*") seleziona tutti gli elementi <br>
+			$("this") seleziona soltanto l'oggetto in azione <br>
+			$("p.intro") Seleziona il tag < p > con la classe intro <br>
+			$("p:first") Seleziona il primo tag < p > che trova <br>
+			$("ul li:first") Seleziona il primo li che trova nel primo ul  <br>
+			$("ul li:first-child") Seleziona ogni primo li in tutti gli ul <br>
+			$("[href]") Seleziona ogni elemento che contiene un href <br>
+			$(":button") Seleziona ogni elemento di tipo button  <br>
+			$("tr:even") Seleziona i tr pari <br>
+			$("tr:odd") Seleziona i tr dispari <br> 
+			<br>   <br><p class="Header_txt"><a name="TornaSu"></a> </p>
+
+			<p class="Header_txt"> Eventi </p>
+
+			<p class="text">
+				Gli eventi che noi possiamo richiamare sono vasti
+			</p> <br>
+			<table style=" margin-left: 7%; font-size: 30px;" name="Eventi">
+				<tr>
+					<td class="Menù" ><a href=#Evento_Mouse>Mouse</a></td>
+					<td class="Menù" ><a href=#Evento_Form>Form</a></td>
+					<td class="Menù" ><a href=#Evento_Keybord>Keybord</a></td>
+					<td class="Menù" ><a href=#Evento_Doc/Wind>Document/Window</a></td>
+				</tr>
+				
+			</table>
+			<p class="Header_txt"><a name="Evento_Mouse"></a> </p> <!-- Escamotage -->
+			<br><br><br><br><br>
+			<p class="Header_txt">Eventi da mouse <p><a href=#TornaSu>Torna su</a></p> </p>
+			<br>
+			<p class="Text">
+				
+				Con la gli eventi possibili del mouse possiamo sintetizzarli in 4 sottogruppi:
+				<p class="Header_txt">Click</p> <br>
+				Con questo evento noi possiamo far eseguire una determinata sequenza di azioni, oppure alterare prorpietà di oggetti con l'evento click del mouse
+				<img src="6.jpg">
+				<div style="width: 100px; height: 100px; background-color: red" id="Evento_Mouse_Click"></div>
+				<button id="Reset">reset</button><br>
+
+				<p class="Header_txt">Double-click</p> <br>
+				Diversamente dal primo evento click, con il double click possiamo distinguere effetti diversi in base al tipo di interazione.
+				Con il doubleclick noi siamo in grado di aggiungere una funzione aggiuntiva a quella precedente.
+				<img src="7.jpg">
+				<div style="width: 100px; height: 100px; background-color: red" id="Evento_Mouse_Dblclick"></div>
+				<button id="Reset">reset</button><br>
+
+
+				<p class="Header_txt">Mouse enter - ouse leave</p> <br>
+				Con questo evento possiamo richiamare detterminate funzioni in base all'entrata/uscita del mouse dall'oggetto indicato, questo può essere un omonimo dell' class:hover di css.
+				<img src="8.jpg">
+				<div style="width: 100px; height: 100px; background-color: red" id="Evento_Mouse_Mouseebter"></div>
+				<button id="Reset">reset</button><br>
+
+
+			</p>
+
+			<p class="Header_txt"><a name="Evento_Form"></a> </p> <!-- Escamotage -->
+			<br><br><br><br><br>
+			<p class="Header_txt">Eventi da form </p>
+			
+			<p class="Header_txt"><a name="Evento_Keybord"></a> </p> <!-- Escamotage -->
+			<br><br><br><br><br>
+			<p class="Header_txt">Eventi da tastiera </p>
+
+			<p class="Header_txt"><a name="Evento_Doc/Wind"></a> </p> <!-- Escamotage -->
+			<br><br><br><br><br>
+			<p class="Header_txt">Eventi da documento o da finestra </p>
+
+			<img src="5.jpg">
+
+
+				
+			</p>
+			<p Class="Header_txt"> Comparsa oggetti con azione </p>
+			<p class="Text">
+				In questa esercitazione vedremo come attribuire un'azione
+				agli oggetti, azioni come click, hover, mouse-in/out e molte altre ancora.
+
+				Primo esempio, codice scritto con JS
+
+
+			</p>
+			<img src="1.jpg">	
+		</div>
+			<div id="Testo" class="Text_box">
+	
+			<p class="Text">
+				Possiamo notare come, per poter eseguire un'azione logicalmente banale, 
+				il codice da scrivere in JavaScript è molto complesso e rischia di
+				avere errori di scrittura e di interpretazione.
+				<br><br>
+				Diversamente dal JS, possiamo notare come con Jquery si possa effettuare la stessa animazione 
+				con molte meno righe di codice 
+			</p>
+			<img src="2.jpg">	
+		</div>
+		
+		
+
+	</div>
+
+</body>
+</html>
+
+
