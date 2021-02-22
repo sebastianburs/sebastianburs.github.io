@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS vs JQ</title>
+	<link rel="stylesheet" type="text/css" href="JS_vs_JQ_style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	
+	<!--  Includo da internet 
+	<script src="Script/jquery.min.js" type="text/javascript"></script>
+  	Includo da file locale  -->
+
+
+
+<script>
+
+$(document).ready(function(){
+	// non andare oltre qua su
+
+
+
+
+
+var i=1
+
+
+	//Effetti miei
+	$("hr").mouseenter(function(){
+		
+		$(this).animate({left: "-5px"}, 100, "linear")
+		$(this).animate({left: "20px"}, 300, "swing");
+		$(this).animate({left: "0px"},  500, "linear");
+		i++;
+		
+		
+	})
+
+
+
+
+  $("#Evento_Mouse_Mouseebter").mouseenter(function(){
+    $(this).css("background-color", "orange");
+  });
+
+  $("#Evento_Mouse_Mouseebter").mouseleave(function(){
+    $(this).css("background-color", "grey");
+  });
+
+  $("button#Reset").click(function(){
+    $("#Evento_Mouse_Mouseebter").css("background-color", "red");
+  });
+});
+
+
+
+$(document).ready(function(){
+  $("#Evento_Mouse_Click").click(function(){
+    $(this).css("background-color", "green");
+  });
+$("#Evento_Mouse_Dblclick").dblclick(function(){
+    $(this).css("background-color", "blue");
+  });
+  $("button#Reset").click(function(){
+    $("#Evento_Mouse_Click").css("background-color", "red")
+    $("#Evento_Mouse_Dblclick").css("background-color", "red");
+  });
+
+$("#Evento_Bottone_Scomparsa").click(()=>{
+
+	$("#Evento_Scomparsa").toggle()
+	
+	})
+
+//effetto sfumatura
+	$("#Effetto_Sfumatura_In_bottone").click(function(){
+		console.log("ciao")
+		$("#Effetto_Sfumatura_1").fadeIn();
+		$("#Effetto_Sfumatura_2").fadeIn("slow");
+		$("#Effetto_Sfumatura_3").fadeIn(2000);
+	})
+	$("#Effetto_Sfumatura_Out_bottone").click(function(){
+		console.log("ciao")
+		$("#Effetto_Sfumatura_1").fadeOut();
+		$("#Effetto_Sfumatura_2").fadeOut("slow");
+		$("#Effetto_Sfumatura_3").fadeOut(2000);
+	})
+
+
+	$("#Effetto_Sfumatura_In_Out_bottone").click(function(){
+
+		$("#Effetto_Sfumatura_4").fadeToggle();
+		$("#Effetto_Sfumatura_5").fadeToggle("slow");
+		$("#Effetto_Sfumatura_6").fadeToggle(2000);
+	})
+$("#Effetto_Sfumatura_Parziale_bottone").click(function(){
+
+	$("#Effetto_Sfumatura_7").fadeTo("slow",0.25);
+	$("#Effetto_Sfumatura_8").fadeTo(200, 0.5);
+	$("#Effetto_Sfumatura_9").fadeTo(12, 0.9);
+
+	 $("#Effetto_Sfumatura_Parziale_bottone_Reset").click(function(){
+    $("#Effetto_Sfumatura_7").fadeTo("slow",1);
+	$("#Effetto_Sfumatura_8").fadeTo("slow",1);
+	$("#Effetto_Sfumatura_9").fadeTo("slow",1);
+  });
+
+});
+
+// $(oggetto).slideDown(Velocità Slow/Down o millisecondi)
+   $("#Scroll_Up").click(function(){
+    $("#Pannello1").slideDown("slow");
+  });
+// $(oggetto).slideUp(Velocità Slow/Down o millisecondi)
+
+   $("#Scroll_Down").click(function(){
+    $("#Pannello2").slideUp("slow");
+  });
+// $(oggetto).slideToggle(Velocità Slow/Down o millisecondi)
+
+   $("#Scroll_Toggle").click(function(){
+    $("#Pannello3").slideToggle("slow");
+  });
+
+
+		// Animazione movimento laterale DX
+
+	   $("#Animazione_Movimento_Destra").click(function(){
+
+		$("#Oggetto_Animato1").animate({left: '250px'});
+
+	});
+		// Animazione movimento laterale SX
+
+	   $("#Animazione_Movimento_Sinistra").click(function(){
+
+		$("#Oggetto_Animato1").animate({left: '-250px'});
+
+	});
+		// Animazione movimento laterale UP
+
+	   $("#Animazione_Movimento_Su").click(function(){
+
+		$("#Oggetto_Animato2").animate({top: '-250px'});
+
+	});
+		// Animazione movimento laterale DOWN
+
+	   $("#Animazione_Movimento_Giu").click(function(){
+
+		$("#Oggetto_Animato2").animate({top: '250px'});
+
+	});
+	   // Animazione movimento relativo
+
+			$("#Animazione_Movimento_Relativo").click(function(){
+
+		$("#Oggetto_Animato3").animate({height: '+=100px'});
+
+	});
+
+			$("#Animazione_Movimento_Relativo_Reset").click(function(){
+
+		$("#Oggetto_Animato3").css({"height": '100px'});
+
+	});
+
+// Animazione movimento con coda
+
+			  $("#Evento_Coda").click(function(){
+    var div = $("#Oggetto_Animato4");
+    div.animate({height: '300px', opacity: '0.4'}, "slow");
+    div.animate({width: '300px', opacity: '0.8'}, "slow");
+    div.animate({height: '100px', opacity: '0.4'}, "slow");
+    div.animate({width: '100px', opacity: '0.8'}, "slow");
+  });
+
+
+//Funzione stop animazione
+
+			   $("#Avvia_Animazione").click(function(){
+    $("#Pannello4").slideDown(5000);
+  });
+  $("#Ferma_Animazione").click(function(){
+    $("#Pannello4").stop();
+
+    $("#Animazione_Stop").click(function(){
+
+
+    	$("#Pannello4").css({"height" : "0px", "display":"none"})
+    })
+  });
+
+// Funzione post esecuzione
+    $("#Avvia_Funzione").click(function(){
+    $("#Prova_1").hide("slow", function(){
+      alert("Il paragrafo è nascosto");
+    });
+  });
+    $("#Reset_Funzione").click(function(){
+    $("#Prova_1").show("fast", function(){
+      alert("Il paragrafo è a video");
+    });
+  });
+
+
+
+
+    $("#Avvia_Concatenamento").click(function(){
+    $("#Animazione_Concatenamento").animate({left: '+100px'}, 500)
+    .animate({height: '+=100px', opacity: '0.4'},1000)
+    .slideUp(100)
+    .slideDown(1000)
+    .css({"height":"+=300px"})
+    .css({"background-color":"green"})
+    .css({"height":"-=300px"})
+    .animate({left: "-=100px"})
+
+    })
+
+    // Ottieni il valore scritto in input
+    $("#Avvia_HTML").click(function(){
+    	alert("Valore input box: "+ $("#input_1").val())
+    })
+
+    // Ottenere attributi in base a oggetto
+    $("#Avvia_HTML_Attributi").click(function(){
+    	alert($("#A1").attr("href"))
+    })
+
+	// Vedi di sistemare
+	//______________________________________________________________________________________________________>
+
+	// $("#Animazione_Movimento_Sinistra_Reset").click(function(){
+
+	// 	$("#Oggetto_Animato").css("margin-left","0px");
+
+	// });
+
+
+// NON SCENDERE OLTRE |!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!|
+	});
+
+</script>
+
+</head>
+<body>
+	
+	<div id="Navbar" class="Navbar"> <p class="Header"> JQUERY </p> <p class="Brand"> Do more, write less </p> </div>
+	<div id="Container" class="Container">
+<img src="0.jpg" class="Img_JsJq">
+		<div id="Testo" class="Text_box" onscroll="myFunction()">
+
+			<p class="Header_txt"> Perchè Jquery?</p>
+			<p class="Text">
+
+				Possiamo giustificare l'uso di JQ solo per una caratteristica fondamentale, la sua semplicità. <br>
+				Infatti JQ è una libreria che integra le funzionalità di JavaScript, con una nomenclatura
+				semplice e comprensibile. <br><br>
+				I suoi utilizzi principali sono per:
+			</p>
+				<ul>
+					<li> Effetti ed Animazioni
+					<li> Manipolazione HTML e Dom
+					<li> Eventi HTML
+					<li> Ajax (Scambio dati)
+				</ul>
+
+<p class="Text">
+				Prima di poter iniziare ad inserire il nostro codice JQ nella nostra pagina HTML, dobbiamo assicurarci di aver
+				Effettuato il link della libreria.
+				Per questo passo ci sono due modi principali:
+				<br><br>
+				1) Scaricare la libreria da JQuery.com<br>
+				2) Allegare con un link la libreria da internet
+				<img src="3.jpg">
+				<hr class="Divisore" id="Divisore">
+				
+				
+				Per poter usare la libreria JQ bisogna utilizzare una sintassi specifica, <br>
+				ora vediamola nelle sue parti: <br>
+				Come prima cosa essenziale dobbiamo chiamare la libreria con il simbolo:  ( $ )
+			<br>
+			Poi possiamo proseguire con il richiamo dell'oggetto: ("oggetto") necesario come un tag, un elemento con Id o con una classe, poi vedremo che ci sono più attributi con cui richiamare oggetti con JQ.<br>
+			Dopo il tag dobbiamo attribuire un'azione da eseguire oppure un trigger che scateni una funzione come onclick etc.<br>
+			Infine attribuiamo la funzione da eseguire come in un Js classico.
+				<img src="4.jpg">
+			
+				 <br>
+			I tag principali che possiamo inserire con JQuery sono:<br>
+			$("*") seleziona tutti gli elementi <br>
+			$("this") seleziona soltanto l'oggetto in azione <br>
+			$("p.intro") Seleziona il tag < p > con la classe intro <br>
+			$("p:first") Seleziona il primo tag < p > che trova <br>
+			$("ul li:first") Seleziona il primo li che trova nel primo ul  <br>
+			$("ul li:first-child") Seleziona ogni primo li in tutti gli ul <br>
+			$("[href]") Seleziona ogni elemento che contiene un href <br>
+			$(":button") Seleziona ogni elemento di tipo button  <br>
+			$("tr:even") Seleziona i tr pari <br>
+			$("tr:odd") Seleziona i tr dispari <br> 
+			<img src="5.jpg">
+			<br>
+			Gli eventi che noi possiamo richiamare sono vasti, infatti possiamo azionare tutte queste funzioni con richiami da input mouse, keyboard e possiamo manipolare documenti e molto altro.
+			
+
+			<p class="text">
+				
+			</p> <br>
+			
+
+			<p class="Header_txt"><a name="Evento_Mouse"></a> </p> <!-- Escamotage -->
+			<br>
+			<p class="Header_txt">Eventi da mouse <p>
+			<hr class="Divisore" id="Divisore">
+			<br>
+			<p class="Text">
+				
+				Con la gli eventi possibili del mouse possiamo sintetizzarli in 4 sottogruppi:
+				<p class="Header_txt">Click</p> <br>
+				Con questo evento noi possiamo far eseguire una determinata sequenza di azioni, oppure alterare prorpietà di oggetti con l'evento click del mouse
+				<img src="6.jpg">
+				<div class="Prova" id="Evento_Mouse_Click"></div>
+				<button id="Reset">reset</button><br>
+				<hr class="Divisore" id="Divisore">
+
+				<p class="Header_txt">Double-click</p> <br>
+				Diversamente dal primo evento click, con il double click possiamo distinguere effetti diversi in base al tipo di interazione.
+				Con il doubleclick noi siamo in grado di aggiungere una funzione aggiuntiva a quella precedente.
+				<img src="7.jpg">
+				<div class="Prova" id="Evento_Mouse_Dblclick"></div>
+				<button id="Reset">reset</button><br>
+				<hr class="Divisore" id="Divisore">
+
+
+				<p class="Header_txt">Mouse enter - Mouse leave</p> <br>
+				Con questo evento possiamo richiamare detterminate funzioni in base all'entrata/uscita del mouse dall'oggetto indicato, questo può essere un omonimo dell' class:hover di css.
+				<img src="8.jpg">
+				<div class="Prova" id="Evento_Mouse_Mouseebter"></div>
+				<button id="Reset">reset</button><br>
+				<hr class="Divisore" id="Divisore">
+
+
+			</p>
+
+
+			
+			
+
+
+				
+			</p>
+			<p Class="Header_txt"> Comparsa oggetti con azione </p>
+			<p class="Text">
+				In questa esercitazione vedremo come attribuire un'azione
+				agli oggetti, azioni come click, hover, mouse-in/out e molte altre ancora.
+
+				Primo esempio, codice scritto con JS
+
+
+			</p>
+			<img src="1.jpg">	
+		</div>
+			<div id="Testo" class="Text_box">
+	
+			<p class="Text">
+				Possiamo notare come, per poter eseguire un'azione logicalmente banale, 
+				il codice da scrivere in JavaScript è molto complesso e rischia di
+				avere errori di scrittura e di interpretazione.
+				<br><br>
+				Diversamente dal JS, possiamo notare come con Jquery si possa effettuare la stessa animazione 
+				con molte meno righe di codice 
+			</p>
+			<img src="2.jpg">	
+
+			<div class="Prova" id="Evento_Scomparsa"></div><br><button id="Evento_Bottone_Scomparsa">Prova</button><br>
+			<hr class="Divisore" id="Divisore">
+		
+
+		<p class="Header_txt">Entrata ed uscita con sfumatura</p>
+		<p class="Text_box">
+			
+			Con JQ abbiamo anche la possibilità di eseguire effetti come l'entrata di un oggetto con un effetto sfumatura.
+			<img src="9.jpg">
+
+			<div class="Prova" id="Effetto_Sfumatura_1" style="background-color:  green; display:none;"> 1 </div><br>
+			<div class="Prova" id="Effetto_Sfumatura_2" style="background-color:  blue; display:none;">2</div>  <br>
+			<div class="Prova" id="Effetto_Sfumatura_3" style="display:none;"> 3 </div><br>
+			<button id="Effetto_Sfumatura_In_bottone">Comparsa</button>
+			<button id="Effetto_Sfumatura_Out_bottone">Scomparsa</button><br>
+			<hr class="Divisore" id="Divisore">
+
+			Tutte queste righe di codice potrebbero essere ridotte alla metà ottenendo lo stesso effetto comparsa/Scomparsa grazie allo strumento toggle.
+			<img src="10.jpg">
+			<br>
+			<div class="Prova" id="Effetto_Sfumatura_4" style="background-color:  green; display:none;">4</div>  <br>
+			<div class="Prova" id="Effetto_Sfumatura_5" style="background-color:  blue; display:none;">5</div>  <br>
+			<div class="Prova" id="Effetto_Sfumatura_6" style="display:none;"> 6 </div><br>
+			<button id="Effetto_Sfumatura_In_Out_bottone">Prova</button>
+			<hr class="Divisore" id="Divisore">
+			<br>
+			infine possiamo anche usare un metodo di sfumatura parziale, che permette di decidere la quantità di sfumatura da applicare ad un detterminato oggetto, inserendo un valore compreso tra 0 e 1 (1 = 100% | 0= 0%).
+			<br>
+			<div class="Prova" id="Effetto_Sfumatura_7" style="background-color:  green; display:none;">7 <br> 25%</div>  <br>
+			<div class="Prova" id="Effetto_Sfumatura_8" style="background-color:  blue; display:none;">8 <br> 50% </div>  <br>
+			<div class="Prova" id="Effetto_Sfumatura_9" style="display:none;"> 9 <br> 100% </div><br>
+			<button id="Effetto_Sfumatura_Parziale_bottone">Prova</button>
+			<button id="Effetto_Sfumatura_Parziale_bottone_Reset">Reset</button> <br>
+			<hr class="Divisore" id="Divisore">
+
+			Per effetti di movimento basilari possiamo utilizzare la funzione Sliding, questa funzione permette all'oggetto di di essere manipolato in altezza.
+			Se abbiamo una nav bar sul telefono dobbiamo impostare un div che, al tocco dell'utente, questo faccia uno slide verso il basso e che mostri tutti i menù necessari.
+			In modo analogo possiamo utilizzare la prorpietà slide in modo opposto, infatti cambiando il "verso" del nostro slide otteniamo l'effetto voluto.
+
+			<br>
+			<img src="11.jpg">
+			<br>
+				<div id="Scroll_Up">Slide Down</div>
+				<div id="Pannello1">Hello world!</div>
+				<hr class="Divisore" id="Divisore">
+
+
+
+
+
+			<br>
+			<img src="12.jpg">
+			<br>
+				<div id="Scroll_Down">Slide Up</div>
+				<div id="Pannello2">Hello world!</div>
+				<hr class="Divisore" id="Divisore">
+				<br>
+				<img src="13.jpg">
+				<div id="Scroll_Toggle">Prova a Slide qui</div>
+				<div id="Pannello3">Hello world!</div>
+		
+				<br>
+				<p class="Header_txt"> Animazioni </p>
+				<hr class="Divisore" id="Divisore">
+				<p clasS="Text_box">
+					
+					In questo paragrafo affronteremo le animazioni che possiamo utlizzare con JQery.<br>
+					In questo paragrafo di tecnico abbiamo soltanto poche righe di codice e semplici attributi basilari, infatti la caratteristica per poter effettuare delle animazioni accattivanti e belle da vedere bisogna avere immaginazione.
+					<br>
+					Iniziamo con una semplice animazione di movimento:
+					<img src="14.jpg">
+
+				<div style="margin-left: 40%;">
+
+					<div id="Oggetto_Animato1" class="Oggetto_Animato"> Ciao</div>
+					<button id="Animazione_Movimento_Sinistra">Sinistra</button>
+					<button id="Animazione_Movimento_Destra">Destra</button>
+					
+					
+				</div>
+					<div style="margin-top: 400px;">
+
+					<div id="Oggetto_Animato2" class="Oggetto_Animato"> Ciao</div>
+					<button id="Animazione_Movimento_Su">Su</button>
+					<button id="Animazione_Movimento_Giu">Giù</button>
+					
+					
+				</div>
+				<!-- 	<button id="Animazione_Movimento_Sinistra_Reset">Sinistra</button> -->
+				<br><br><br><br><br><br><br><br><br><br><br><br>
+				$(selector).animate({parametri},velocità,Azione da eseguire a fine esecuzione);
+
+				Nei parametri possiamo impostare molte variabili come altezza, dimensione, opacità e molto altro. <br>
+				<b>Attenzione</b><br>
+				In questo tipo di evento possiamo anche inserire dei valori relativi.<br>
+				<img src="15.jpg">
+
+				<div id="Oggetto_Animato3" class="Oggetto_Animato"> Ciao</div>
+					<button id="Animazione_Movimento_Relativo"> Avvia </button>
+					<button id="Animazione_Movimento_Relativo_Reset"> Reset </button>
+					<hr class="Divisore" id="Divisore">
+					<br>
+					Un'altra funzionalità molto interessante è l'effetto esecuzione a "coda" che possiamo far eseguire, infatti come una serie di passaggi, viene eseguito la prima animazione, poi la seconda e avanti così fino alla fine.<br>
+
+					<img src="16.jpg"><br>
+					<u><i>Nota</i></u><br>
+					In questo tipo di animazione il bottone reggistrerà il numero di click e li eseguirà in coda, anche se premiamo 3 volte nella prima animazione, il nostro div continuerà il suo ciclo per le 1+3volte<br>
+					<button id="Evento_Coda"> Avvia </button>
+					<hr class="Divisore" id="Divisore">
+
+					<div id="Oggetto_Animato4" class="Oggetto_Animato"> Ciao</div>
+
+
+					<p class="Header_txt"> Stop-Animazioni </p>
+					<p class="Text_box">
+						In questa funzione abbiamo la possibilità di interrompere un'animazione in corso
+						<br>
+<img src="17.jpg"><br>
+						
+						<button id="Ferma_Animazione">Ferma</button>
+						<button id="Animazione_Stop">Reset</button>
+						<br>
+					<div id="Avvia_Animazione">Avvia animazione</div>
+					<div id="Pannello4">Ciaoooooo</div>
+					<hr class="Divisore" id="Divisore">
+					<br>
+					<p class="Header_txt">Richiamo di funzioni a fine esecuzione</p>
+					Nel nostro programma abbiamo un inizio ed una fine di esecuzioni definite.<br>
+					Anche se questo ciclo è concluso potremmo avere dei bug oppure può creare errori, per questo possiamo impostare una funzione da eseguire quando un'azione è finita.<br>
+					<img src="18.jpg"><br>
+<button id="Avvia_Funzione">Nascondi</button>
+<button id="Reset_Funzione">Reset</button><br>
+
+<p id="Prova_1">|Prova di un paragrafo che scomparirà!|</p>
+
+	<p class="Header_txt">Concatenamenti</p>
+	<hr class="Divisore" id="Divisore">
+	 Un'altro particolare molto interessante delle funzioni JQ è il fatto di poter concatenare più eventi in successione, permettendo alla pagina di alleggerire il peso della pagina ( Non deve cercare n volte l'oggetto voluto.)<br>
+	<button id="Avvia_Concatenamento">Avvia animazione</button>
+	 <div class="Prova Concatenamento" id="Animazione_Concatenamento"> Ciao, Sono una prova</div>
+	 <br>
+	 <p class="Header_txt"> JQuery in HTML</p>
+	 <hr class="Divisore" id="Divisore"><br>
+	 In questo paragrafo affronteremmo l'applicazione di funzioni JQ per modificare il documento in tutto e per tutto.<br>
+	 Possiamo iniziare con la manipolazione del DOM del nostro HTML.<br>
+	 Per poter prendere valori direttamente dal nostro documento dobbiamo utilizzare la funzione .val(), in modod da poter prendere il valore di un detterminato dato (Array, input type e altri sistemi di inserimento dato/valori)
+	<br>
+    <input type="text" id="input_1">
+	<button id="Avvia_HTML">Avvia</button>
+	<img src="19.jpg">
+	<br>
+	Oltre ad ottenere dati direttamente dal documento, e di poter scrivere all'interno del documento, possiamo anche ottenere detterminati attributi di oggetti interni al documento come dimensione, colore, collegamento link e ogni tipo di attributo possibile.
+	<p style="color: red; font-size: 30px; font-weight: bold; margin-left: 100px; " id="P1"><a href="https://www.w3schools.com" id="A1"> Questo è un testo di prova </a></p>
+	<button id="Avvia_HTML_Attributi">Avvia</button>
+	<br>
+
+	
+
+				
+
+
+
+
+
+					</p>
+
+
+
+
+
+				</p>
+
+				<pre>
+   _____        __                  __   _             
+  / ___/ ___   / /_   ____ _ _____ / /_ (_)____ _ ____ 
+  \__ \ / _ \ / __ \ / __ `// ___// __// // __ `// __ \
+ ___/ //  __// /_/ // /_/ /(__  )/ /_ / // /_/ // / / /
+/____/ \___//_.___/ \__,_//____/ \__//_/ \__,_//_/ /_/ 
+                                                      
+</pre>
+		</p>
+		
+
+
+
+
+
+
+
+		</div>
+
+	</div>
+
+
+</body>
+</html>
+
+
